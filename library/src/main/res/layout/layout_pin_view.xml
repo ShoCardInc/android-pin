@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/app_background">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/pin_layout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -77,6 +77,6 @@
             pin:pinkeyboardview_keyBackground="@drawable/pinlibrary_pin_key_selector"
             pin:pinkeyboardview_textColor="@color/pinlibrary_text_gray" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

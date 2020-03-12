@@ -1,7 +1,5 @@
 package com.venmo.android.pin;
 
-import android.app.Activity;
-import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
@@ -10,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentActivity;
 
 public class PinFragment extends DialogFragment implements PinFragmentImplement {
 
@@ -52,14 +52,14 @@ public class PinFragment extends DialogFragment implements PinFragmentImplement 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        setStyle(android.support.v4.app.DialogFragment.STYLE_NORMAL, R.style.PinDialogWithTransparentBackground);
+        setStyle(androidx.fragment.app.DialogFragment.STYLE_NORMAL, R.style.PinDialogWithTransparentBackground);
         Bundle args = getArguments();
         mPinDisplayType = (PinDisplayType) args.getSerializable(KEY_FRAGMENT_VIEW_TYPE);
     }
 
-    public void start(Activity activity) {
+    public void start(FragmentActivity activity) {
         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        show(activity.getFragmentManager(), TAG);
+        show(activity.getSupportFragmentManager(), TAG);
     }
 
     @Override

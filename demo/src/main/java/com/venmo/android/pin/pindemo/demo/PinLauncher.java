@@ -1,23 +1,24 @@
 package com.venmo.android.pin.pindemo.demo;
 
-import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+
 import com.venmo.android.pin.PinFragment;
 import com.venmo.android.pin.PinListener;
 
-public class PinLauncher extends Activity implements PinListener {
+public class PinLauncher extends FragmentActivity implements PinListener {
 
     private PinFragment pinFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_pin_launcher);
 
         findViewById(R.id.sdk_button).setOnClickListener(new View.OnClickListener() {
@@ -33,7 +34,6 @@ public class PinLauncher extends Activity implements PinListener {
     public void onCancelled() {
         if (pinFragment != null) {
             pinFragment.dismiss();
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
     }
 
@@ -50,7 +50,7 @@ public class PinLauncher extends Activity implements PinListener {
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
     }
 }
